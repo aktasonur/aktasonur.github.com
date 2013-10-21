@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
+	<info organisation="leodagdag" module="play2-morphia-plugin_2.10" revision="0.0.20" status="release" publication="20131021115934">
+		<description>
+		play2-morphia-plugin
+		</description>
+	</info>
+	<configurations>
+		<conf name="compile" visibility="public" description=""/>
+		<conf name="runtime" visibility="public" description="" extends="compile"/>
+		<conf name="test" visibility="public" description="" extends="runtime"/>
+		<conf name="provided" visibility="public" description=""/>
+		<conf name="optional" visibility="public" description=""/>
+		
+		
+		
+		
+		<conf name="sources" visibility="public" description=""/>
+		<conf name="docs" visibility="public" description=""/>
+		<conf name="pom" visibility="public" description=""/>
+		
+	</configurations>
+	<publications>
+		<artifact name="play2-morphia-plugin_2.10" type="jar" ext="jar" conf="compile"/>
+		<artifact name="play2-morphia-plugin_2.10" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+		<artifact name="play2-morphia-plugin_2.10" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+	</publications>
+	<dependencies>
+		
+		
+		<dependency org="com.github.jmkgreen.morphia" name="morphia" rev="1.2.2" conf="compile->default(compile)"/>
+		<dependency org="com.github.jmkgreen.morphia" name="morphia-logging-slf4j" rev="1.2.2" transitive="false" conf="compile->default(compile)">
+			<exclude org="org.slf4j" module="slf4j-simple" name="*" type="*" ext="*" conf="" matcher="exact"/>
+			<exclude org="org.slf4j" module="slf4j-jdk14" name="*" type="*" ext="*" conf="" matcher="exact"/>
+		</dependency>
+		<dependency org="com.github.jmkgreen.morphia" name="morphia-validation" rev="1.2.2" transitive="false" conf="compile->default(compile)">
+			<exclude org="org.slf4j" module="slf4j-simple" name="*" type="*" ext="*" conf="" matcher="exact"/>
+			<exclude org="org.slf4j" module="slf4j-jdk14" name="*" type="*" ext="*" conf="" matcher="exact"/>
+		</dependency>
+		<dependency org="com.typesafe.play" name="play-java_2.10" rev="2.2.0" conf="provided->default(compile)"/>
+		<dependency org="org.springframework" name="spring-core" rev="3.0.7.RELEASE" transitive="false" conf="compile->default(compile)">
+			<exclude org="org.springframework" module="spring-asm" name="*" type="*" ext="*" conf="" matcher="exact"/>
+			<exclude org="commons-logging" module="commons-logging" name="*" type="*" ext="*" conf="" matcher="exact"/>
+		</dependency>
+		<dependency org="org.springframework" name="spring-beans" rev="3.0.7.RELEASE" transitive="false" conf="compile->default(compile)">
+			<exclude org="org.springframework" module="spring-core" name="*" type="*" ext="*" conf="" matcher="exact"/>
+		</dependency>
+		<dependency org="com.typesafe.play" name="play-test_2.10" rev="2.2.0" conf="test->default(compile)"/>
+	</dependencies>
+</ivy-module>
